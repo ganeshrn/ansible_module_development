@@ -11,7 +11,6 @@ def main():
     """ main entry point for module execution
     """
     required_together = [['first', 'last']]
-    mutually_exclusive = [['name', 'aggregate']]
 
     argument_spec = dict(
         first=dict(type='str', required=True),
@@ -20,7 +19,7 @@ def main():
     )
 
     module = AnsibleModule(argument_spec=argument_spec,
-                           mutually_exclusive=mutually_exclusive,
+                           required_together=required_together,
                            supports_check_mode=True)
 
     result = {}
