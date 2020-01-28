@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: get full name
+    full_name:
+      first: foo
+      middle: bam
+      last: bar
+    register: result
+
+  - name: print result
+    debug:
+      msg: "{{ result }}"

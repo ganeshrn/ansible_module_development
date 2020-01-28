@@ -4,9 +4,9 @@
   gather_facts: no
   tasks:
   - name: get full name
-    print_name:
+    full_name_with_title:
+      title: Mr
       first: foo
-      middle: bam
       last: bar
     register: result
 
