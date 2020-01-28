@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  vars:
+    - pull_request: 61006
+  tasks:
+    - name: Get information about GitHub Pull Request
+      github_pr_info:
+        organization: ansible
+        repo: ansible
+        pull_request: "{{ pull_request }}"
+      register: r
+
+    - name: Print {{ pull_request }} information
+      debug:
+        msg: "{{ r }}"
+
+    - name: Check if PR {{ pull_request }} is open or not
+      assert:
+        that:
+          - r.pull_request_info.state == "open"
