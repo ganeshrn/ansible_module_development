@@ -14,7 +14,6 @@ class User():
         return "User(id=%s)" % self.id
 
 def verify(username, password):
-    print(username, password)
     if not (username and password):
         return False
     if USER_DATA.get(username) == password:
