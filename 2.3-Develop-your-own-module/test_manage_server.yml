@@ -1,0 +1,23 @@
+---
+- name: Apache server installed
+  hosts: web
+  become: yes
+  vars:
+    server_state: present
+  tasks:
+  - name: manage web server
+    manage_server:
+      state: "{{ server_state }}"
+    register: result
+
+  - name: copy index.html
+    copy:
+      src: ~/ansible_module_development/2.3-Develop-your-own-module/index.html
+      dest: /var/www/html/
+    when: server_state == 'present'
+
+  - name: Remove file (delete file)
+    file:
+      path: /var/www/html/index.html
+      state: absent
+    when: server_state == 'absent'

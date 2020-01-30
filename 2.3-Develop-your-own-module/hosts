@@ -1,0 +1,12 @@
+[all:vars]
+ansible_user=<changme>
+ansible_ssh_pass=<changme>
+ansible_port=22
+
+[web]
+node1 ansible_host=<changme>
+# node2 ansible_host=<changme>
+# node3 ansible_host=<changme>
+
+[control]
+ansible ansible_host=<changme>
