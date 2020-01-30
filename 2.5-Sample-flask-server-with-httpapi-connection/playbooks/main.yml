@@ -1,0 +1,11 @@
+---
+- hosts: all
+  connection: httpapi
+  gather_facts: false
+  tasks:
+  - name: Get User information
+    user_info:
+    register: r
+
+  - debug:
+      msg: "{{ r }}"

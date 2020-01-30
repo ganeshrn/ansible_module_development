@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Get information about User
+      user_info:
+        username: user1
+        password: Secr3tPassw0rd
+        servername: 0.0.0.0
+        port: 8042
+      register: r
+
+    - name: Print User information
+      debug:
+        msg: "{{ r }}"

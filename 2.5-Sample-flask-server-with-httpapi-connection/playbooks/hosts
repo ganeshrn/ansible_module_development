@@ -1,0 +1,10 @@
+[jwtserver]
+node01 ansible_host=0.0.0.0
+
+[jwtserver:vars]
+ansible_network_os=jwtcore
+ansible_user=user1
+ansible_password=Secr3tPassw0rd
+ansible_httpapi_validate_certs=False
+ansible_httpapi_use_ssl=No
+ansible_httpapi_port=8042
